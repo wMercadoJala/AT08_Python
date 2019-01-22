@@ -1,12 +1,12 @@
-def operation(s, s1, s2):
-    if s is "+":
-        print(int(s1) + int(s2))
-    elif s is "-":
-        print(int(s1) - int(s2))
-    elif s is "*":
-        print(int(s1) * int(s2))
-    elif s is "/":
-        print(int(s1) / int(s2))
+def operation(sign_op, num1, num2):
+    if sign_op is "+":
+        print(int(num1) + int(num2))
+    elif sign_op is "-":
+        print(int(num1) - int(num2))
+    elif sign_op is "*":
+        print(int(num1) * int(num2))
+    elif sign_op is "/":
+        print(int(num1) / int(num2))
 
 
 operation("*", "5", "6")
