@@ -26,12 +26,4 @@ def exist_value():
     return "value exist in dic" if int(input("input valor int")) in _dictionary_.values() else "value don't exist"
 
 
-create()
 
-print_dictionary()
-
-print(exist_value())
-
-print_values()
-
-print_keys()
