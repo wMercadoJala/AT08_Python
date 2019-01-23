@@ -3,7 +3,7 @@ from unittest import TestCase
 from rodrigo.practice1.main import DaysTask
 
 
-class TestDays_in_month(TestCase):
+class TestdaysInMonth(TestCase):
     def test_days_in_month(self):
         self.assertEqual("Error, please check the input", DaysTask.days_in_month("Fe"))
 
