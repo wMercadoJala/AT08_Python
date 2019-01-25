@@ -39,7 +39,7 @@ class Purchase:
         print(self.storage_items.items)
 
 
-pur = Purchase()
+purchase = Purchase()
 items_to_buy = [("black marker", 10), ("blue marker", 4)]
-print(pur.buy(items_to_buy), "<- total price")
-pur.show_existing_items()
+print(purchase.buy(items_to_buy), "<- total price")
+purchase.show_existing_items()
