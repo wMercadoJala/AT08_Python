@@ -1,7 +1,7 @@
 class user:
 
-    def __init__(self, nickname):
-        self.nick_name = nickname
+    def __init__(self, id_user):
+        self.id_user = id_user
         self.name = {}
         self.age = {}
 
@@ -10,7 +10,7 @@ class user:
         self.age.update({"age" : age})
 
     def get_nickname(self):
-        return self.nick_name
+        return self.id_user
 
     def get_name(self):
         return self.name.get("name")

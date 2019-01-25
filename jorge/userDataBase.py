@@ -1,12 +1,13 @@
 from jorge.user import user
 
 container = {}
-nickname = ""
-def set_user(nicknam, name, age):
-    global nickname
-    nickname = nicknam
-    container.update({nickname: user(nickname)})
-    container.get(nickname).fill_date_user(name, age)
+id_user = 0
+def set_user(id_usr, name, age):
+    global id_user
+    id_user = id_usr
+    if 101 > id_user > 0 and 9 > len(name.lower()) > 1:
+        container.update({id_user: user(id_user)})
+        container.get(id_user).fill_date_user(name.lower(), age)
 
 
 def print_keys():
@@ -15,11 +16,18 @@ def print_keys():
 
 def print_values():
     for key in container:
-        print("NICKNAME: " + container.get(key).get_nickname() + "NAME: " +
-              container.get(key).get_name() + "AGE: " + container.get(key).get_age())
+        print("ID USER: " + str(container.get(key).get_nickname()) + " NAME: " +
+              str(container.get(key).get_name()) + " AGE: " + str(container.get(key).get_age()))
 
 def exist_key(key):
     return container.__contains__(key)
+
+def find_user_with_one_digit(digit):
+    container_find = []
+    for key in container:
+        if str (key)[0]==str(digit):
+            container_find.append(key)
+    return container_find
 
 
 def exist_values(values):
@@ -32,11 +40,11 @@ def exist_values(values):
     return resp
 
 
-set_user("jorge7421", "jorge1", "15")
-set_user("jorge7422", "jorge2", "16")
-set_user("jorge7423", "jorge3", "17")
-set_user("jorge7424", "jorge4", "19")
+set_user(42, "JORGELEO", 15)
+set_user(43, "jorge2", 16)
+set_user(44, "jorge3", 17)
+set_user(100, "jorge4", 19)
 print_keys()
 print_values()
-
-print(exist_key("jorge7422"))
+print(find_user_with_one_digit(4))
+print(exist_key(42))
