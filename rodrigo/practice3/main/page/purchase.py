@@ -11,6 +11,7 @@ logger.addHandler(handler)
 
 
 class Purchase:
+    """Class of Purchase an item"""
 
     def __init__(self):
         self.storage_items = Store()
@@ -19,6 +20,11 @@ class Purchase:
         self.storage_items.storage("red marker", 15, 150)
 
     def buy(self, items):
+        """
+        Method for buy an item.
+        :param items: List of items.
+        :return: Total Price.
+        """
         logger.info("Start to buy items")
         total_price = 0
         for item in items:
@@ -35,6 +41,9 @@ class Purchase:
         return total_price
 
     def show_existing_items(self):
+        """
+        Method to print the list of existing items.
+        """
         logger.info("Showing the storage items")
         print(self.storage_items.items)
 
