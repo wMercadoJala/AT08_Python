@@ -1,5 +1,5 @@
 """
-Create 1 module to print 4 different messages :
+Create 1 modules to print 4 different messages :
     - You are a child, when the age is lower than 12
     - Your are teenager, when the age is between 13 and 17
     - You are young, when the age is between 18 and 29
@@ -14,5 +14,5 @@ def people_is(age):
                    3: {'age_min': 18, 'age_max': 29, 'people': 'young'},
                    4: {'age_min': 30, 'age_max': 1000, 'people': 'adult'}}
     for key in ages_people:
-        if ages_people[key]['age_min'] <= age <= ages_people[key]["age_max"]:
+        if ages_people[key]['age_min'] <= int(age) <= ages_people[key]["age_max"]:
             return ages_people[key]['people']
