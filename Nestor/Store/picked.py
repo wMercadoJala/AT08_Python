@@ -15,3 +15,9 @@ class Picked:
     def print_items_quantity(self):
         for item in self.items_quantity:
             print(f'{item[0]}: {item[1]}')
+
+    def get_prices(self):
+        return self.items_price
+
+    def get_quantities(self):
+        return self.items_quantity
