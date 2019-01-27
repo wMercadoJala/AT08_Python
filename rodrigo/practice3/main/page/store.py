@@ -5,10 +5,13 @@ logger = logging.getLogger(__name__)
 
 class Store:
     """
-    Class of store items.
+    Class of stored items.
     """
 
     def __init__(self):
+        """
+        Constructor of the store, initialises the items list.
+        """
         self.amount_items = 0
         self.items = []
 

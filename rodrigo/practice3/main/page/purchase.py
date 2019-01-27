@@ -14,6 +14,9 @@ class Purchase:
     """Class of Purchase an item"""
 
     def __init__(self):
+        """
+        Constructor of the Purchase class, initialises with an initial objects, using the class store.
+        """
         self.storage_items = Store()
         self.storage_items.storage("black marker", 20, 100)
         self.storage_items.storage("blue marker", 25, 100)
