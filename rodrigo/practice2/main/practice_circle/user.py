@@ -3,6 +3,10 @@ from rodrigo.practice2.main.practice_circle import perimeter
 
 
 def user_circle():
+    """
+    Method for a user who can introduce radius of a circle and knows the area and the perimeter.
+    :return: The characteristics of a circle.
+    """
     radius = 0
     try:
         radius = int(input("Please, insert a radius of the circle-> "))

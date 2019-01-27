@@ -3,6 +3,10 @@ from rodrigo.practice2.main.practice_age import calculate
 
 
 def write_user():
+    """
+    This method create a list of users.
+    :return: Print all the characteristics of the user.
+    """
     dict_length = int(input("How much users you want to record? -> "))
     dictionary = {}
     for item in range(dict_length):
@@ -16,6 +20,11 @@ def write_user():
 
 
 def print_characteristics(dictionary):
+    """
+    This method print all the characteristics of the age of an user.
+    :param dictionary: Input dictionary.
+    :return: All the characteristics.
+    """
     for key in dictionary.keys():
         print("----Name of the user: {0}----".format(key))
         print(msg_age.age_identifier(dictionary[key]))

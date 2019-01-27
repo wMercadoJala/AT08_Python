@@ -1,4 +1,11 @@
 def replace(phrase, old, new):
+    """
+    This method makes a replace method similar of replace built-in python
+    :param phrase: Input phrase
+    :param old: Character to change
+    :param new: Character will be changed
+    :return: The new phrase
+    """
     print(new.join(phrase.split(old)))
 
 

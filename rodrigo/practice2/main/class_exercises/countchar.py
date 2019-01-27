@@ -1,4 +1,9 @@
 def char_count(string):
+    """
+    This method count the character a-z of a string and count each one how many times its used.
+    :param string: Input string
+    :return: List of chars counted
+    """
     char_dictionary = {}
     phrase = "".join(string.split(" ")).lower()
     for letter in phrase:
