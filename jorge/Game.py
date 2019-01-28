@@ -15,18 +15,13 @@ class Game:
         return resp
 
     def print_characters_of_phrase(self):
-        global attempts
-        attempts += 1
         global phrases
         aux = ""
-        if attempts<7:
-            for character in phrases:
-                if character.islower():
-                    aux += character
-                else:
-                    aux += "_"
-        else:
-            aux = "YOU ARE DEAD"
+        for character in phrases:
+            if character.islower():
+                aux += character
+            else:
+                aux += "_"
         print(aux)
 
     def print_intentos(self):
