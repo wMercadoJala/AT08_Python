@@ -2,6 +2,11 @@ from math import pi
 
 
 def area_of_circle(radio):
+    """
+    This method calculates the area of ​​the circle by entering a radius minor to 10.
+    :param radio: Radius of circle.
+    :return: string with the area of circle with radio minor to 10.
+    """
     return \
         {True: "Area of circle with radio " + str(radio) + " is: " + str(
             round(pi * radio ** 2, 2)) + " Meters"
