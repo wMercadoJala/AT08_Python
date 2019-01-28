@@ -16,7 +16,7 @@ class Game:
 
     def exist_char(self, char):
         character = str(char).upper()
-        if self.word.find(character) is not -1 or not character == ' ':
+        if self.word.find(character) is not -1:
             self.set_char(character)
             return True
         else:
@@ -36,7 +36,8 @@ class Game:
             self.word_game[new_pos] = self.word[new_pos]
 
     def print_word_game(self):
-        return '*********\nGanaste...\n*********' if self.word_is_complete() else ' '.join(self.word_game)
+        return '{0}\n*********\nGanaste...\n*********'.format(' '.join(self.word_game))\
+            if self.word_is_complete() else ' '.join(self.word_game)
 
     def set_char(self, char):
         pos = 0
