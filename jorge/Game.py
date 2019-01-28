@@ -9,7 +9,7 @@ class Game:
     def exits_character(self, new_character):
         resp = False
         global phrases
-        if phrases.find(new_character)>0:
+        if phrases.find(new_character) > 0:
             phrases.replace(new_character, new_character.lower())
             resp = True
         return resp

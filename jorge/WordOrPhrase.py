@@ -6,3 +6,7 @@ class WordOrPhrase:
     def get_phrase(self):
         return self.phrase
 
+    def set_phrase(self,new_phrase):
+        self.phrase = new_phrase.upper()
+
+
