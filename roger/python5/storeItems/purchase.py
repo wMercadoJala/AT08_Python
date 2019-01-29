@@ -9,20 +9,18 @@ from roger.python5.storeItems.store import Store
 
 class Purchase:
 
-    def __init__(self, item, amount):
+    def __init__(self):
+        self.list_purchase = {}
+        self.total_price = 0
 
-        self.item_buy = item
-        self.amount_buy = amount
+    def ask_for_item(self, item_buy, amount_buy):
+        if Store().item_in_stock(item_buy):
+            self.buy_item(item_buy, amount_buy)
 
-    def ask_for_item(self):
-        for item_stock in Store.get_items():
-            if self.item_buy is item_stock:
-                return True
-        return False
+    def buy_item(self, item, amount):
 
-    def buy_item(self):
-        if self.ask_for_item():
-            return True
+
+
 
 
 

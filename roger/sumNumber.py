@@ -1,4 +1,9 @@
 def sum_to(number):
+    """
+    Method that returns the sum of all integer numbers up to and including only until any value lower than 35.
+    :param number: Maxim integer number of the range.
+    :return: The sum of all integer numbers in the range.
+    """
     result = 0
     for index in range(0, number + 1):
         if index <= 35:

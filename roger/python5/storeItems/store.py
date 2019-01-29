@@ -4,7 +4,6 @@ According the amount of items picked . Create a class considering :
 - Initial list of items with the specific price for each one
 - Initial list of items with the quantity of each one
 """
-from roger.python5.storeItems.item import Item
 from roger.python5.storeItems.stock import Stock
 """
 IN PROGRESS
@@ -37,3 +36,5 @@ class Store:
             items_with_amount[item.item] = item.amount
         return items_with_amount
 
+    def item_in_stock(self, item):
+        return True if item in self.get_items() else True
