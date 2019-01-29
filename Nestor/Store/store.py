@@ -11,6 +11,10 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
+
+"""
+This class instantiated object store.
+"""
 class Store:
     def __init__(self):
         self.item_list = []

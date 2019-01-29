@@ -1,6 +1,9 @@
 # picked
 
 
+"""
+This class instantiated one object to add items to cart.
+"""
 class Picked:
     def __init__(self):
         self.total_items_to_buy = 0
