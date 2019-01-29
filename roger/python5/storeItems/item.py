@@ -1,6 +1,5 @@
 class Item:
     """
-    IN PROGRESS
     This class represent an item.
     """
     def __init__(self, item, price, amount):
