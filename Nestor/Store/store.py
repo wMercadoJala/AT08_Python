@@ -16,23 +16,45 @@ logger.addHandler(handler)
 This class instantiated object store.
 """
 class Store:
+    """
+    Method constructor.
+    """
     def __init__(self):
         self.item_list = []
         self.picked_list = picked.Picked()
 
+    """
+    Method to create an item.
+    name: type string.
+    price: type int.
+    amount: type int quantity items in stock.
+    """
     def create_item(self, name, price, amount):
         self.item_list.append(item.Item(name, price, amount))
 
+    """
+    Method to print to balance.
+    """
     def item_balance(self):
         for element in self.item_list:
             print(f"item: {element.item['name']}, price: {element.item['price']}, quantity: {element.item['amount']}")
 
+    """
+    Method to get price for item.
+    name: type string.
+    :return: type int, item price or raise Value Error if item do not found in list cart.
+    """
     def get_price_item(self, name):
         for element in self.item_list:
             if element.item['name'] == name:
                 return element.item['price']
         raise ValueError
 
+    """
+    Method to picked one item into cart.
+    name: type string.
+    This method should picked one item or raise Value Error if item do not found in store item list.
+    """
     def item_picked(self, name, quantity):
         try:
             self.picked_list.add_item(name, self.get_price_item(name), quantity)
@@ -41,6 +63,12 @@ class Store:
             print('This item do not exist in our store.')
             logger.info(f'Item {name} not found in our list store.')
 
+    """
+    Method to update the balance store items stock.
+    name: type string.
+    quantity: type int.
+    This method should update store item stock or raise Value Error if are something wrong with items list.
+    """
     def update_balance(self, name, quantity):
         for element in self.item_list:
             if element.item['name'] == name:
@@ -48,6 +76,9 @@ class Store:
                 return
         raise ValueError
 
+    """
+    Method to complete purchase from the cart list.
+    """
     def purchase(self):
         try:
             for items in self.picked_list.get_quantities():
@@ -57,6 +88,9 @@ class Store:
             print('Cannot make purchase.')
             logger.info('One or more items could not bought.')
 
+    """
+    Method to print detail for each item purchased.
+    """
     def total_purchase(self):
         total_price = 0
         for items in self.picked_list.get_quantities():
