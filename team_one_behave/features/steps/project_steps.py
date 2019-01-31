@@ -15,10 +15,11 @@ logger = SingletonLogger().get_logger()
 @step(u'I set up a "{method}" request to "{endpoint}" endpoint')
 def step_impl(context, method, endpoint):
     logger.info("Make the call")
-    client = RequestManager()
-    client.set_method(method)
-    client.set_endpoint(endpoint)
-    context.client = client
+    # client = RequestManager()
+    print("Header of the put", context.client.get_headers())
+    context.client.set_method(method)
+    context.client.set_endpoint(endpoint)
+    # context.client = client
 
 
 @then(u'I get a "{status_code}" status code as response')
