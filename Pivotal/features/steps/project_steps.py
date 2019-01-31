@@ -3,9 +3,9 @@ from compare import *
 
 import json
 
-from core.logger.singleton_logger import SingletonLogger
-from core.rest_client.request_manager import *
-from core.utils.json_helper import JsonHelper
+from Pivotal.core.logger.singleton_logger import SingletonLogger
+from Pivotal.core.rest_client.request_manager import *
+from Pivotal.core.utils.json_helper import JsonHelper
 
 logger = SingletonLogger().get_logger()
 
