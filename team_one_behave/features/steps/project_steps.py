@@ -5,6 +5,7 @@ from compare import *
 from jsonschema import validate
 
 from definitions import SCHEMA_CREATION
+from definitions import SCHEMA_ACCOUNT
 from team_one_behave.core.logger.singleton_logger import SingletonLogger
 from team_one_behave.core.rest_client.request_manager import *
 from team_one_behave.core.utils.json_helper import JsonHelper
