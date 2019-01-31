@@ -11,7 +11,7 @@ class RequestManager:
     def __init__(self):
         self.method = ''
         self.endpoint = ''
-        self.headers = {}
+        self.headers = {"X-TrackerToken": config_data['token']}
         self.body = {}
         self.parameters = {}
         self.base_url = config_data['api_url']
