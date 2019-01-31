@@ -1,20 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @estigmata Sign out
-0
-0 0 estigmata/borrar
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-borrar/.gitignore
-d69a651  just now
-@estigmata estigmata Initial commit
-
-105 lines (84 sloc)  1.17 KB
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -122,3 +105,4 @@ venv.bak/
 
 # Custom
 *.idea
+environment.yml
