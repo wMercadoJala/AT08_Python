@@ -3,7 +3,6 @@ import json
 from behave import *
 
 from team_one_behave.core.logger.singleton_logger import SingletonLogger
-from team_one_behave.core.rest_client.request_manager import *
 
 logger = SingletonLogger().get_logger()
 
@@ -15,7 +14,7 @@ def step_impl(context, id):
 
 @step("I set up the header")
 def step_impl(context):
-    context.client = RequestManager()
+    logger.info("Add Headers to request")
     header = json.loads(context.text)
     data = context.client.get_headers()
     for key in header.keys():
