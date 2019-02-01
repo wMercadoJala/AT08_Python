@@ -59,6 +59,13 @@ def step_impl(context):
     context.client.set_body(json.dumps(body))
 
 
+@step(u'I set up the header')
+def step_impl(context):
+    logger.info("Add data to header")
+    for row in context.table:
+        context.client.add_header({row["Name header"]: row["Content header"]})
+
+
 @step("I validate with an schema")
 def step_impl(context):
     logger.info("Validation of the schema")

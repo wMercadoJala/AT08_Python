@@ -20,6 +20,9 @@ class RequestManager:
     def set_headers(self, headers):
         self.headers = headers
 
+    def add_header(self, header):
+        self.headers.update(header)
+
     def set_parameters(self, parameters):
         self.parameters = parameters
 
@@ -63,6 +66,7 @@ class RequestManager:
         uri = self.build_url()
         dispatch = {
             'GET': requests.get(uri, headers=self.headers, auth=self.authentication),
-            'POST': requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body())
+            'POST': requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body()),
+            'DELETE': requests.get(uri, headers=self.headers, auth=self.authentication)
         }
         return dispatch[self.method]
