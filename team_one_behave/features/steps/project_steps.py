@@ -25,7 +25,7 @@ def step_impl(context, method, endpoint):
 @then(u'I get a "{status_code}" status code as response')
 def step_impl(context, status_code):
     logger.info("Validation Status Code")
-    JsonHelper.print_pretty_json(context.response.json())
+    # JsonHelper.print_pretty_json(context.response.json())
     expect(int(status_code)).to_equal(context.response.status_code)
 
 
@@ -41,7 +41,7 @@ def step_impl(context):
 @then(u'I get an OK response')
 def step_impl(context):
     logger.info("Validation Smoke")
-    JsonHelper.print_pretty_json(context.response.json())
+    # JsonHelper.print_pretty_json(context.response.json())
     expect(200).to_equal(context.response.status_code)
 
 
