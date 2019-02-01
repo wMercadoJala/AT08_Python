@@ -33,3 +33,4 @@ Feature: Project
     """
     When I send the request
     Then I get a "204" status code as response
+
