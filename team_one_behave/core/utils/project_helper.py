@@ -8,5 +8,6 @@ class ProjectHelper():
     def create_project(context):
         # client = RequestManager()
         project_name = "".join(random.choices(string.ascii_letters + string.digits, k=10))
-
+        # client.set_method(GET)
+        # client.set_endpoint(endpoint)
 
