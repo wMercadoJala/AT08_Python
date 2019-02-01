@@ -63,6 +63,8 @@ class RequestManager:
         uri = self.build_url()
         dispatch = {
             'GET': requests.get(uri, headers=self.headers, auth=self.authentication),
-            'POST': requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body())
+            'POST': requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body()),
+            'PUT': requests.put(uri, headers=self.headers, data=self.get_body()),
+            'DELETE': requests.delete(uri, headers=self.headers)
         }
         return dispatch[self.method]
