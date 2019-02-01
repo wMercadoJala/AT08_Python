@@ -3,12 +3,6 @@ Feature: Epics
 
   Scenario: Create a new epic
     Given I set up a "POST" request to "/projects/2242582/epics" endpoint
-    And I set up the header
-    """
-    {
-      "Content-Type": "application/json"
-    }
-    """
     And I set up the data
     """
     {
