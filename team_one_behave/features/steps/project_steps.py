@@ -16,7 +16,6 @@ logger = SingletonLogger().get_logger()
 def step_impl(context, method, endpoint):
     logger.info("Make the call")
     client = RequestManager()
-    # print("Header of the put", context.client.get_headers())
     client.set_method(method)
     client.set_endpoint(endpoint)
     context.client = client
