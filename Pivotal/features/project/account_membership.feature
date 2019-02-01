@@ -46,9 +46,7 @@ Feature: Account Memberships
       When I send the request
       Then I get a "200" status code as response
 
-   Scenario: Updates the specified account membership.
+   Scenario: Delete the specified account membership.
     Given I set up a "DELETE" request to "/accounts/1081260/memberships/3143789" endpoint
       When I send the request
       Then I get a "204" status code as response
-
-
