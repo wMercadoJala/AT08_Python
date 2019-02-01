@@ -22,3 +22,14 @@ Feature: Project
     """
     When I send the request
     Then I get a "200" status code as response
+
+  Scenario: Delete an specified project
+    Given I set up a "DELETE" request to "/projects/2242779" endpoint
+    And I set up the header
+    """
+    {
+      "Content-Type": "application/json"
+    }
+    """
+    When I send the request
+    Then I get a "204" status code as response
