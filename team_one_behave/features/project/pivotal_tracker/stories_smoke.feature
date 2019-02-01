@@ -3,12 +3,6 @@ Feature: Stories
 
   Scenario: Create a new story
     Given I set up a "POST" request to "/projects/2242582/stories" endpoint
-    And I set up the header
-    """
-    {
-      "Content-Type": "application/json"
-    }
-    """
     And I set up the data
     """
     {

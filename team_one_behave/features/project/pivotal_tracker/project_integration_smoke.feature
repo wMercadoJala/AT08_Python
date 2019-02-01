@@ -8,12 +8,6 @@ Feature: Project Integration
 
   Scenario: Post an specified project integration
     Given I set up a "POST" request to "/projects/2242582/integrations" endpoint
-    And I set up the header
-    """
-    {
-      "Content-Type": "application/json"
-    }
-    """
     And I set up the data
     """
     {
