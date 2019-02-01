@@ -4,7 +4,7 @@ from behave import *
 from compare import *
 from jsonschema import validate
 
-from definitions import SCHEMA_CREATION
+from definitions import schema_todoly
 from team_one_behave.core.logger.singleton_logger import SingletonLogger
 from team_one_behave.core.rest_client.request_manager import *
 from team_one_behave.core.utils.json_helper import JsonHelper
@@ -61,7 +61,7 @@ def step_impl(context):
 @step("I validate with an schema")
 def step_impl(context):
     logger.info("Validation of the schema")
-    with open(SCHEMA_CREATION) as schema_creation:
+    with open(schema_todoly['Creation']) as schema_creation:
         schema = json.load(schema_creation)
     validate(instance=context.response.json(), schema=schema)
 
