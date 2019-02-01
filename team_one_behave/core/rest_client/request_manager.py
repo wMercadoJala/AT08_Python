@@ -1,8 +1,10 @@
 import requests
 import yaml
 
+from definitions import ENV_YML
+
 global config_data
-config_data = yaml.load(open('environment.yml'))
+config_data = yaml.load(open(ENV_YML))
 
 
 # Class that performs API requests.

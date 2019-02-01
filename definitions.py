@@ -1,6 +1,7 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ENV_YML = os.path.join(ROOT_DIR, 'environment.yml')
 
 schema_pivotal = {
     'Account': os.path.join(ROOT_DIR, 'team_one_behave/schemas/pivotal_tracker/account.schema.json'),
