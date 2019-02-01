@@ -1,3 +1,4 @@
+@smoke
 Feature: Get Projects
 
   Scenario: Get Projects

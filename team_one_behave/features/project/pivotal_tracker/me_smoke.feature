@@ -1,3 +1,4 @@
+@smoke
 Feature: Me API pivotal tracker
 
   Scenario: Get Me
