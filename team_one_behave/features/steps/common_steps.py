@@ -1,12 +1,10 @@
-import json
-
 from behave import *
 from compare import *
 from jsonschema import validate
 
 from definitions import schema_todoly
 from team_one_behave.core.logger.singleton_logger import SingletonLogger
-from team_one_behave.core.rest_client.request_manager import *
+from team_one_behave.core.utils.common_helper import *
 from team_one_behave.core.utils.json_helper import JsonHelper
 
 logger = SingletonLogger().get_logger()
@@ -17,7 +15,7 @@ def step_impl(context, method, endpoint):
     logger.info("Make the call")
     client = RequestManager()
     client.set_method(method)
-    client.set_endpoint(endpoint)
+    client.set_endpoint(CommonHelper.read_endpoint(endpoint))
     context.client = client
 
 

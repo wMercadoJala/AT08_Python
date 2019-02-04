@@ -11,7 +11,7 @@ Feature: Get Projects
     And I set up the data
     """
     {
-      "name": "TEST PROJECTS"
+      "name": "Test project creation"
     }
     """
     When I send the request
