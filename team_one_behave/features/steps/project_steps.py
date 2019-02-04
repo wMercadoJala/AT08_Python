@@ -1,20 +1,20 @@
+"""Module of steps for project"""
 import json
 
-from behave import *
+from behave import step
 
 from team_one_behave.core.logger.singleton_logger import SingletonLogger
 
-logger = SingletonLogger().get_logger()
-
-
-@step('I set up the project with the id "{id}"')
-def step_impl(context, id):
-    logger.info("Setting the id of the project")
+LOGGER = SingletonLogger().get_logger()
 
 
 @step("I set up the header")
-def step_impl(context):
-    logger.info("Add Headers to request")
+def set_up_header(context):
+    """
+    Step for set the header of the request.
+    :param context: Input context.
+    """
+    LOGGER.info("Add Headers to request")
     header = json.loads(context.text)
     data = context.client.get_headers()
     for key in header.keys():

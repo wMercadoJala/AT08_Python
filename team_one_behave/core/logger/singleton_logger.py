@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+"""Module of singleton"""
 import datetime
 import logging
 import os
@@ -6,6 +6,7 @@ from pathlib import Path
 
 
 class SingletonType(type):
+    """Type of Singleton"""
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
@@ -15,6 +16,7 @@ class SingletonType(type):
 
 
 class SingletonLogger(object, metaclass=SingletonType):
+    """Singleton logger class"""
     _logger = None
 
     def __init__(self):
@@ -23,7 +25,9 @@ class SingletonLogger(object, metaclass=SingletonType):
         """
         self._logger = logging.getLogger("crumbs")
         self._logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter('%(asctime)s \t [%(levelname)s] | %(filename)s:%(lineno)s] > %(message)s')
+        formatter = logging.Formatter(
+            "%(asctime)s \t [%(levelname)s] | %(filename)s:%(lineno)s] > %(message)s"
+        )
 
         now = datetime.datetime.now()
         current_dir = str(Path().absolute())
@@ -31,7 +35,9 @@ class SingletonLogger(object, metaclass=SingletonType):
         dir_name = "{}/log".format(current_dir)
         if not os.path.isdir(dir_name):
             os.mkdir(dir_name)
-        file_handler = logging.FileHandler(dir_name + "/todo.ly_" + now.strftime("%Y-%m-%d") + ".log")
+        file_handler = logging.FileHandler(
+            dir_name + "/todo.ly_" + now.strftime("%Y-%m-%d") + ".log"
+        )
 
         stream_handler = logging.StreamHandler()
 

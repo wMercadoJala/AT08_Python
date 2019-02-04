@@ -1,20 +1,28 @@
+"""Helper for projects of pivotal tracker"""
 import json
-import random
+from random import choices
 import string
 
-from definitions import all_id
-from team_one_behave.core.rest_client.request_manager import *
+from definitions import STORED_ID
+from team_one_behave.core.rest_client.request_manager import RequestManager
 
 
-class ProjectHelper():
+class ProjectHelper(object):
+    """Project helper class"""
+
+    def __init__(self):
+        """Utility class"""
 
     @staticmethod
     def create_project():
+        """
+        This method create a project in pivotal tracker
+        """
         client = RequestManager()
-        project_name = "".join(random.choices(string.ascii_letters + string.digits, k=10))
+        project_name = "".join(choices(string.ascii_letters + string.digits, k=10))
         client.set_method("POST")
         client.set_endpoint("/projects")
         body = {"name": project_name}
         client.set_body(json.dumps(body))
         response = client.execute_request()
-        all_id['project_id'] = response.json()['id']
+        STORED_ID['project_id'] = response.json()['id']
