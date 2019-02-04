@@ -5,17 +5,18 @@ import json
 
 from Pivotal.core.logger.singleton_logger import SingletonLogger
 from Pivotal.core.rest_client.request_manager import *
-from Pivotal.core.utils.json_helper import JsonHelper
+from Pivotal.core.utils import commons
+from Pivotal.core.utils.commons import *
 
 logger = SingletonLogger().get_logger()
-
+container = names_storage().get_instance()
 
 @step(u'I set up a "{method}" request to "{endpoint}" endpoint')
 def step_impl(context, method, endpoint):
     logger.info("Make the call")
     client = RequestManager()
     client.set_method(method)
-    client.set_endpoint(endpoint)
+    client.set_endpoint(commons.get_filter(endpoint))
     context.client = client
 
 
@@ -33,12 +34,12 @@ def step_impl(context):
     client.set_endpoint('/projects.json')
     context.client = client
 
-
-@then(u'I get an OK response')
-def step_impl(context):
-    logger.info("Validation Smoke")
-    JsonHelper.print_pretty_json(context.response.json())
-    expect(200).to_equal(context.response.status_code)
+#
+# @then(u'I get an OK response')
+# def step_impl(context):
+#     logger.info("Validation Smoke")
+#     JsonHelper.print_pretty_json(context.response.json())
+#     expect(200).to_equal(context.response.status_code)
 
 
 @step(u'I send the request')
@@ -50,5 +51,13 @@ def step_impl(context):
 @step(u'I set up the data')
 def step_impl(context):
     logger.info("Add Data to request")
-    body = json.loads(context.text)
+    unique_name = commons.get_new_unique_name(context.text)
+    container.addName("",unique_name)
+    body = json.loads(unique_name)
     context.client.set_body(json.dumps(body))
+
+
+@step(u'I storage project how "{project_1}"')
+def step_impl(context, project_1):
+    logger.info("Add Data to storage")
+    container.addName(project_1, context.text)
