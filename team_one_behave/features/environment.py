@@ -3,7 +3,7 @@ from team_one_behave.core.utils.common_helper import CommonHelper
 from team_one_behave.core.utils.project_helper import ProjectHelper
 
 
-def before_scenario(scenario):
+def before_scenario(context, scenario):
     """
     Method who run before the scenario.
     :param scenario: Input scenario.
@@ -18,7 +18,7 @@ def before_scenario(scenario):
         CommonHelper.get_account_id()
 
 
-def after_scenario(scenario):
+def after_scenario(context, scenario):
     """
     Method who run after the scenario.
     :param scenario: Input scenario.
