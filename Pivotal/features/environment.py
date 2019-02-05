@@ -9,6 +9,8 @@ def before_feature(context, feature):
 def before_scenario(context, scenario):
     if 'create_webhook' in scenario.tags:
         ProjectHelper.create_webhook('https://elvillano.com')
+    if 'create_membership' in scenario.tags:
+        ProjectHelper.create_membership(405)
 
 #
 def before_all(context):
