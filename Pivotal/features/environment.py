@@ -12,4 +12,4 @@ def before_scenario(context, scenario):
     if 'create_membership' in scenario.tags:
         ProjectHelper.create_membership(405)
     if 'create_integration' in scenario.tags:
-        ProjectHelper.create_integration("http://some.th/ing")
+        ProjectHelper.create_integration("https://elrincondejira2.atlassian.net")

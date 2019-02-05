@@ -1,4 +1,4 @@
-@smonky @create_project
+@smoke @create_project
 Feature: Get account
 
   Scenario: Post memberships with project_id

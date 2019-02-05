@@ -1,4 +1,5 @@
 import json
+from builtins import print
 
 from Pivotal.core.rest_client.request_manager import RequestManager
 from Pivotal.core.utils.storage import Storage
@@ -15,8 +16,7 @@ class ProjectHelper:
     def create_project(name):
         client = RequestManager()
         body = {
-            'name': name,
-            'new_account_name': 'Test account'
+            'name': name
         }
         client.set_method('POST')
         client.set_endpoint('/projects')
@@ -58,8 +58,12 @@ class ProjectHelper:
     def create_integration(url):
         client = RequestManager()
         body = {
-            'base_url':url,
-            'name':'something'
+            'api_username':'fakeuser',
+            'api_password': 'fakepassword',
+            'filter_id': '474748',
+            'base_url': url,
+            'name': 'algointeresantee',
+            'type': 'jira'
         }
         client.set_method('POST')
         client.set_endpoint('/projects/' + str(ProjectHelper.project_id) + '/integrations')
