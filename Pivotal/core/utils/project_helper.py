@@ -52,3 +52,21 @@ class ProjectHelper:
         response = client.execute_request()
         container_id.add_value("$MEMBERSHIP_ID_FOR_PROJECT", response.json()["id"])
         ProjectHelper.membership_id = response.json()['id']
+
+    @staticmethod
+    def create_integration(url):
+        client = RequestManager()
+        body = {
+            'api_username':'fakeuser',
+            'api_password': 'fakepassword',
+            'filter_id': '474748',
+            'base_url': url,
+            'name': 'algointeresantee',
+            'type': 'jira'
+        }
+        client.set_method('POST')
+        client.set_endpoint('/projects/' + str(ProjectHelper.project_id) + '/integrations')
+        client.set_body(json.dumps(body))
+        response = client.execute_request()
+        container_id.add_value("$INTEGRATION_ID", response.json()["id"])
+        ProjectHelper.membership_id = response.json()['id']

@@ -11,3 +11,5 @@ def before_scenario(context, scenario):
         ProjectHelper.create_webhook('https://elvillano.com')
     if 'create_membership' in scenario.tags:
         ProjectHelper.create_membership(405)
+    if 'create_integration' in scenario.tags:
+        ProjectHelper.create_integration("https://elrincondejira2.atlassian.net")
