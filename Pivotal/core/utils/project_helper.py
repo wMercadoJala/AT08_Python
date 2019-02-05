@@ -1,5 +1,4 @@
 import json
-from builtins import print
 
 from Pivotal.core.rest_client.request_manager import RequestManager
 from Pivotal.core.utils.storage import Storage
