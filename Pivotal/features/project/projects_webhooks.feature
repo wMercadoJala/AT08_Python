@@ -1,4 +1,4 @@
-@yellow
+@smoke
 Feature: webhooks
 
   Background:
