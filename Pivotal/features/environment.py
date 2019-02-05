@@ -7,6 +7,5 @@ def before_feature(context, feature):
 
 
 def before_scenario(context, scenario):
-    print('Project ID:', context.project_id)
     if 'create_webhook' in scenario.tags:
         ProjectHelper.create_webhook('https://elvillano.com')
