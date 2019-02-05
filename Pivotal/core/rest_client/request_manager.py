@@ -11,7 +11,7 @@ class RequestManager:
     def __init__(self):
         self.method = ''
         self.endpoint = ''
-        self.headers = {"X-TrackerToken": config_data['token']}
+        self.headers = {"X-TrackerToken": config_data['token'], "Content-Type": "application/json"}
         self.body = {}
         self.parameters = {}
         self.base_url = config_data['api_url']
@@ -65,3 +65,7 @@ class RequestManager:
             return requests.get(uri, headers=self.headers, auth=self.authentication)
         elif self.method == 'POST':
             return requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body())
+        elif self.method == 'PUT':
+            return requests.put(uri, headers=self.headers, auth=self.authentication, data=self.get_body())
+        elif self.method == 'DELETE':
+            return requests.delete(uri, headers=self.headers, auth=self.authentication)
