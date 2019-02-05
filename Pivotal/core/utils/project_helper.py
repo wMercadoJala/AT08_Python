@@ -48,9 +48,7 @@ class ProjectHelper:
         }
         client.set_method('POST')
         client.set_endpoint('/projects/' + str(ProjectHelper.id_project) + '/memberships')
-        print('/projects/' + str(ProjectHelper.id_project) + '/memberships')
         client.set_body(json.dumps(body))
         response = client.execute_request()
-        print(">>>>>" + str(response.json()))
         container_id.add_value("$MEMBERSHIP_ID_FOR_PROJECT", response.json()["id"])
         ProjectHelper.id_membership = response.json()['id']
