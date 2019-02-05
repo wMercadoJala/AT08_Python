@@ -1,10 +1,11 @@
+@create_project
 Feature: Return a set of iterations from the project. (Paginated)
+
   Scenario: Successful responses to this request return an array containing zero or more instances of the iteration
   resource.
     Given I set up a "GET" request to "/projects/2242825/iterations" endpoint
     When I send the request
     Then I get a "200" status code as response
-
 
   Scenario: Successful responses to this request return the iteration resource.
     Given I set up a "GET" request to "/projects/2242825/iterations/1" endpoint
