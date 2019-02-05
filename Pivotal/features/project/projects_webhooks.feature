@@ -1,4 +1,4 @@
-@smoke @create_project
+@smokee @create_project
 Feature: webhooks
 
   Scenario: Get webhooks

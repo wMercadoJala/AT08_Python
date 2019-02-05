@@ -1,6 +1,9 @@
 api_url: https://www.pivotaltracker.com/services/v5
-user: team2at08@mailinator.com
+user: project_at08t2@mailinator.com
 pass: at08team2
-token: d1b81ba9bc260c5a832872933fe2d39d
+token: 636d8f03545a294c7b2d0ebcb889e116
+account_id: 1081999
 member1: machine123@mailinator.com
-pass1: MAQUINAS123
+member2: wilson.lopez@fundacion-jala.org
+
+

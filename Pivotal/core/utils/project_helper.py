@@ -8,6 +8,7 @@ container_id = Storage.get_instance()
 
 class ProjectHelper:
     project_id = None
+    account_id = None
     webhook_id = None
     membership_id = None
 
@@ -43,8 +44,8 @@ class ProjectHelper:
     def create_membership(person_id):
         client = RequestManager()
         body = {
-            'person_id':person_id,
-            'role':'member'
+            'person_id': person_id,
+            'role': 'member'
         }
         client.set_method('POST')
         client.set_endpoint('/projects/' + str(ProjectHelper.project_id) + '/memberships')
@@ -52,3 +53,14 @@ class ProjectHelper:
         response = client.execute_request()
         container_id.add_value("$MEMBERSHIP_ID_FOR_PROJECT", response.json()["id"])
         ProjectHelper.membership_id = response.json()['id']
+
+    @staticmethod
+    def clear_account(person_id):
+        client = RequestManager()
+        client.set_method("GET")
+        client.set_endpoint("/projects")
+        response = client.execute_request()
+        for project in response.json():
+            ProjectHelper.delete_project(project["id"])
+
+
