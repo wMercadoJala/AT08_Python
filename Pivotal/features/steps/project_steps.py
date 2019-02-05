@@ -7,9 +7,9 @@ from Pivotal.core.logger.singleton_logger import SingletonLogger
 from Pivotal.core.rest_client.request_manager import *
 from Pivotal.core.utils import commons
 from Pivotal.core.utils.json_helper import JsonHelper
-from Pivotal.core.utils.id_storage import id_storage
+from Pivotal.core.utils.storage_id import storage_id
 
-container_id = id_storage.get_instance()
+container_id = storage_id.get_instance()
 logger = SingletonLogger().get_logger()
 
 

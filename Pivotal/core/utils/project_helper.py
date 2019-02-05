@@ -1,9 +1,9 @@
 import json
 
 from Pivotal.core.rest_client.request_manager import RequestManager
-from Pivotal.core.utils.id_storage import id_storage
+from Pivotal.core.utils.storage_id import storage_id
 
-container_id = id_storage.get_instance()
+container_id = storage_id.get_instance()
 
 
 class ProjectHelper:

@@ -1,6 +1,6 @@
-from Pivotal.core.utils.id_storage import id_storage
+from Pivotal.core.utils.storage_id import storage_id
 
-container_id = id_storage.get_instance()
+container_id = storage_id.get_instance()
 
 def get_filter(param):
     walk = 0
