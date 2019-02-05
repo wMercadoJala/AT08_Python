@@ -1,3 +1,4 @@
+@smoking @create_project
 Feature: Integrations
 
   Scenario: Get integrations with project_id
@@ -19,7 +20,7 @@ Feature: Integrations
     When I send the request
     Then I get a "200" status code as response
 
-
+  @create_integration
   Scenario: Get integrations with project_id and integration_id
     Given I set up a "GET" request to "/projects/$PROJECT_ID/integrations/$INTEGRATION_ID" endpoint
     When I send the request
@@ -37,12 +38,13 @@ Feature: Integrations
     When I send the request
     Then I get a "200" status code as response
 
+  @create_integration
   Scenario: Delete integrations with project_id and integration_id
     Given I set up a "DELETE" request to "/projects/$PROJECT_ID/integrations/$INTEGRATION_ID" endpoint
     When I send the request
-    Then I get a "200" status code as response
+    Then I get a "204" status code as response
 
-
+  @create_integration
   Scenario: Get stories of integrations with project_id and integration_id
     Given I set up a "GET" request to "/projects/$PROJECT_ID/integrations/$INTEGRATION_ID/stories" endpoint
     When I send the request

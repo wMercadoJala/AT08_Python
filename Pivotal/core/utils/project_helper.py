@@ -15,7 +15,8 @@ class ProjectHelper:
     def create_project(name):
         client = RequestManager()
         body = {
-            'name': name
+            'name': name,
+            'new_account_name': 'Test account'
         }
         client.set_method('POST')
         client.set_endpoint('/projects')
@@ -51,4 +52,18 @@ class ProjectHelper:
         client.set_body(json.dumps(body))
         response = client.execute_request()
         container_id.add_value("$MEMBERSHIP_ID_FOR_PROJECT", response.json()["id"])
+        ProjectHelper.membership_id = response.json()['id']
+
+    @staticmethod
+    def create_integration(url):
+        client = RequestManager()
+        body = {
+            'base_url':url,
+            'name':'something'
+        }
+        client.set_method('POST')
+        client.set_endpoint('/projects/' + str(ProjectHelper.project_id) + '/integrations')
+        client.set_body(json.dumps(body))
+        response = client.execute_request()
+        container_id.add_value("$INTEGRATION_ID", response.json()["id"])
         ProjectHelper.membership_id = response.json()['id']
