@@ -1,4 +1,5 @@
 Feature: Return a set of iterations from the project. (Paginated)
+
   Scenario: Successful responses to this request return an array containing zero or more instances of the iteration
   resource.
     Given I set up a "GET" request to "/projects/2242825/iterations" endpoint
