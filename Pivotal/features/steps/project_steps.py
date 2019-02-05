@@ -5,8 +5,11 @@ import json
 
 from Pivotal.core.logger.singleton_logger import SingletonLogger
 from Pivotal.core.rest_client.request_manager import *
+from Pivotal.core.utils import commons
 from Pivotal.core.utils.json_helper import JsonHelper
+from Pivotal.core.utils.id_storage import id_storage
 
+id_container = id_storage.get_instance()
 logger = SingletonLogger().get_logger()
 
 
@@ -15,7 +18,7 @@ def step_impl(context, method, endpoint):
     logger.info("Make the call")
     client = RequestManager()
     client.set_method(method)
-    client.set_endpoint(endpoint)
+    client.set_endpoint(commons.get_filter(endpoint))
     context.client = client
 
 
