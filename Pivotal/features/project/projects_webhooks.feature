@@ -1,24 +1,23 @@
 @yellow
 Feature: webhooks
+
   Background:
-    Given I set up a "POST" request to "/projects" endpoint
+    Given I set up a "POST" request to "/pŕojects" endpoint
     And I set up the data
       """
       {
-      "name":"Executioner.dateTime"
+      "name":"my first project"
       }
       """
-    And I storage project how "project_1"
     And I send the request
 
-
   Scenario: Get webhooks
-    Given I set up a "GET" request to "/projects/{:project_1:}/webhooks" endpoint
+    Given I set up a "GET" request to "/projects" endpoint
     When I send the request
     Then I get a "200" status code as response
 
   Scenario: Post webhooks
-    Given I set up a "POST" request to "/projects/{:project_1:}/webhooks" endpoint
+    Given I set up a "POST" request to "/projects/2244435/webhooks" endpoint
     And I set up the data
       """
       {
@@ -30,12 +29,12 @@ Feature: webhooks
     Then I get a "200" status code as response
 
   Scenario: Get webhooks with id
-    Given I set up a "GET" request to "/projects/{:project_1:}/webhooks/234337" endpoint
+    Given I set up a "GET" request to "/projects/2244435/webhooks/234428" endpoint
     When I send the request
     Then I get a "200" status code as response
 
   Scenario: Put webhooks with id
-    Given I set up a "PUT" request to "/projects/{:project_1:}/webhooks/234337" endpoint
+    Given I set up a "PUT" request to "/projects/2244435/webhooks/234428" endpoint
     And I set up the data
       """
       {
@@ -46,6 +45,6 @@ Feature: webhooks
     Then I get a "200" status code as response
 
   Scenario: Delete webhooks with id
-    Given I set up a "DELETE" request to "/projects/{:project_1:}/webhooks/234337" endpoint
+    Given I set up a "DELETE" request to "/projects/2244435/webhooks/234427" endpoint
     When I send the request
     Then I get a "204" status code as response
