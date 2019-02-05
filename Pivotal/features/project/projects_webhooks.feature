@@ -1,40 +1,32 @@
-@smoke
+@smoke @create_project
 Feature: webhooks
 
-  Background:
-    Given I set up a "POST" request to "/pŕojects" endpoint
-    And I set up the data
-      """
-      {
-      "name":"my first project"
-      }
-      """
-    And I send the request
-
   Scenario: Get webhooks
-    Given I set up a "GET" request to "/projects" endpoint
+    Given I set up a "GET" request to "/projects/$PROJECT_ID/webhooks" endpoint
     When I send the request
     Then I get a "200" status code as response
 
   Scenario: Post webhooks
-    Given I set up a "POST" request to "/projects/2244435/webhooks" endpoint
+    Given I set up a "POST" request to "/projects/$PROJECT_ID/webhooks" endpoint
     And I set up the data
       """
       {
-      "webhook_url":"https://lapelicula.com",
+      "webhook_url":"https://lapelicula2468.com",
       "webhook_version":"v5"
       }
       """
     When I send the request
     Then I get a "200" status code as response
 
-  Scenario: Get webhooks with id
-    Given I set up a "GET" request to "/projects/2244435/webhooks/234428" endpoint
+  @create_webhook
+  Scenario: Get webhooks with webhooks_id
+    Given I set up a "GET" request to "/projects/$PROJECT_ID/webhooks/$WEBHOOK_ID" endpoint
     When I send the request
     Then I get a "200" status code as response
 
+  @create_webhook
   Scenario: Put webhooks with id
-    Given I set up a "PUT" request to "/projects/2244435/webhooks/234428" endpoint
+    Given I set up a "PUT" request to "/projects/$PROJECT_ID/webhooks/$WEBHOOK_ID" endpoint
     And I set up the data
       """
       {
@@ -44,7 +36,8 @@ Feature: webhooks
     When I send the request
     Then I get a "200" status code as response
 
+  @create_webhook
   Scenario: Delete webhooks with id
-    Given I set up a "DELETE" request to "/projects/2244435/webhooks/234427" endpoint
+    Given I set up a "DELETE" request to "/projects/$PROJECT_ID/webhooks/$WEBHOOK_ID" endpoint
     When I send the request
     Then I get a "204" status code as response
