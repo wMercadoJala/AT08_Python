@@ -1,9 +1,9 @@
 import json
 
 from Pivotal.core.rest_client.request_manager import RequestManager
-from Pivotal.core.utils.id_storage import id_storage
+from Pivotal.core.utils.storage import Storage
 
-id_container = id_storage.get_instance()
+container_id = Storage.get_instance()
 
 
 class ProjectHelper:
@@ -21,9 +21,9 @@ class ProjectHelper:
         client.set_endpoint('/projects')
         client.set_body(json.dumps(body))
         response = client.execute_request()
-        id_container.add_value("$PROJECT_ID", response.json()['id'])
+        container_id.add_value("$PROJECT_ID", response.json()['id'])
         ProjectHelper.id_project = response.json()['id']
-        print('/projects/' + str(ProjectHelper.id_project) + '/webhooks')
+        return response.json()['id']
 
     @staticmethod
     def create_webhook(name):
@@ -36,6 +36,5 @@ class ProjectHelper:
         client.set_endpoint('/projects/' + str(ProjectHelper.id_project) + '/webhooks')
         client.set_body(json.dumps(body))
         response = client.execute_request()
-        id_container.add_value("$WEBHOOK_ID", response.json()['id'])
+        container_id.add_value("$WEBHOOK_ID", response.json()['id'])
         ProjectHelper.id_webhook = response.json()['id']
-        print("/projects/" + str(ProjectHelper.id_project) + "/webhooks/" + str(ProjectHelper.id_webhook))
