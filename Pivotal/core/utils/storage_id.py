@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
-class id_storage:
+class storage_id:
 
     container = None;
     our_instance = None;
     @staticmethod
     def get_instance():
-        if (id_storage.our_instance == None):
-            ourInstance = id_storage()
+        if (storage_id.our_instance == None):
+            ourInstance = storage_id()
         return ourInstance;
 
     def __init__(self):
-        id_storage.container = {}
+        storage_id.container = {}
 
     def add_value(self, key, value):
-        id_storage.container[key] = value
+        storage_id.container[key] = value
 
     def get_value(self, key):
-        return id_storage.container.get(key)
+        return storage_id.container.get(key)
 
     def remove_value(self, key):
-        del id_storage.container[key]
+        del storage_id.container[key]
