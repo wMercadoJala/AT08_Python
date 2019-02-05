@@ -9,7 +9,7 @@ from Pivotal.core.utils import commons
 from Pivotal.core.utils.json_helper import JsonHelper
 from Pivotal.core.utils.id_storage import id_storage
 
-id_container = id_storage.get_instance()
+container_id = id_storage.get_instance()
 logger = SingletonLogger().get_logger()
 
 
