@@ -1,5 +1,7 @@
+from random import choices
 from Pivotal.core.utils.project_helper import ProjectHelper
 
+import string
 
 def before_all(context):
     print("****************** PIVOTAL TRACKER API TESTING **************")
@@ -13,14 +15,16 @@ def before_feature(context, feature):
 
 
 def before_scenario(context, scenario):
+    if 'create_projects' in scenario.tags:
+        ProjectHelper.create_project('project.dateTime')
     if 'create_webhook' in scenario.tags:
-        ProjectHelper.create_webhook('https://elvillano.com')
+        ProjectHelper.create_webhook('https://elvillano.dataTime.com')
     if 'create_membership' in scenario.tags:
-        ProjectHelper.create_membership(405)
+        ProjectHelper.create_membership()
     if 'create_integration' in scenario.tags:
-        ProjectHelper.create_integration("https://elrincondejira2.atlassian.net")
+        ProjectHelper.create_integration("https://elrincondejira2.atlassian.net", "".join(choices(string.ascii_letters + string.digits, k=10)))
     if 'create_epic' in scenario.tags:
-        ProjectHelper.create_epic('First epic to my project')
+        ProjectHelper.create_epic('epic.dateTime')
 
 
 def after_all(context):
