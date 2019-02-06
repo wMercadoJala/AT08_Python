@@ -50,7 +50,7 @@ class ProjectHelper:
     def create_membership(person_id):
         client = RequestManager()
         body = {
-            'person_id': person_id,
+            'person_id': config_data['member1_id'],
             'role': 'member'
         }
         client.set_method('POST')
@@ -99,6 +99,13 @@ class ProjectHelper:
         ProjectHelper.epic_id = response.json()['id']
 
     @staticmethod
+    def delete_account_membership(account_id, membership_id):
+        client = RequestManager()
+        client.set_method("DELETE")
+        client.set_endpoint("/accounts/{0}/memberships/{1}".format(account_id, membership_id))
+        client.execute_request()
+
+    @staticmethod
     def clear_account():
         account_id = config_data['account_id']
         client = RequestManager()
@@ -110,13 +117,19 @@ class ProjectHelper:
                 ProjectHelper.delete_project(project["id"])
 
     @staticmethod
+    def clear_account_memberships():
+        account_id = config_data['account_id']
+        client = RequestManager()
+        client.set_method("GET")
+        client.set_endpoint("/accounts/{0}/memberships".format(account_id))
+        response = client.execute_request()
+        for membership in response.json():
+            if membership["owner"] is False:
+                ProjectHelper.delete_account_membership(account_id, membership["id"])
+
+    @staticmethod
     def set_account_data():
         account_id = config_data['account_id']
         membership_id = config_data['member2_id']
         container_id.add_value('$ACCOUNT_ID', account_id)
         container_id.add_value('$MEMBERSHIP_ID_FOR_ACCOUNT', membership_id)
-
-
-
-
-
