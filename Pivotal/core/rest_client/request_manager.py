@@ -67,9 +67,9 @@ class RequestManager:
         """
         uri = self.build_url()
         sending = {
-            'GET': requests.get(uri, headers=self.headers, auth=self.authentication),
-            'POST': requests.post(uri, headers=self.headers, auth=self.authentication, data=self.get_body()),
-            'PUT': requests.put(uri, headers=self.headers, auth=self.authentication, data=self.get_body()),
-            'DELETE': requests.delete(uri, headers=self.headers, auth=self.authentication)
+            'GET': requests.get,
+            'POST': requests.post,
+            'PUT': requests.put,
+            'DELETE': requests.delete
         }
-        return sending[self.method]
+        return sending[self.method](uri, headers=self.headers, auth=self.authentication, data=self.get_body())

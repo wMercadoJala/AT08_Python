@@ -25,3 +25,4 @@ def before_scenario(context, scenario):
 
 def after_all(context):
     ProjectHelper.clear_account()
+    ProjectHelper.clear_account_memberships()
