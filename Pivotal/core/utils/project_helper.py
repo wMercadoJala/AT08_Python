@@ -10,6 +10,7 @@ class ProjectHelper:
     project_id = None
     webhook_id = None
     membership_id = None
+    epic_id = None
 
     @staticmethod
     def create_project(name):
@@ -70,3 +71,16 @@ class ProjectHelper:
         response = client.execute_request()
         container_id.add_value("$INTEGRATION_ID", response.json()["id"])
         ProjectHelper.membership_id = response.json()['id']
+
+    @staticmethod
+    def create_epic(name):
+        client = RequestManager()
+        body = {
+            'name': name
+        }
+        client.set_method('POST')
+        client.set_endpoint('/projects/{project_id}/epics'.format(project_id=ProjectHelper.project_id))
+        client.set_body(json.dumps(body))
+        response = client.execute_request()
+        container_id.add_value('$EPIC_ID', response.json()['id'])
+        ProjectHelper.epic_id = response.json()['id']
