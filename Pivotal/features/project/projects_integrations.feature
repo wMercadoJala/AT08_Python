@@ -6,14 +6,18 @@ Feature: Integrations
     When I send the request
     Then I get a "200" status code as response
 
+  @create_project
   Scenario: Post integrations with project_id
     Given I set up a "POST" request to "/projects/$PROJECT_ID/integrations" endpoint
     And I set up the data
     """
     {
-    "base_url":"https://elrincondejiraversion.atlassian.net",
-    "name":"algointeresante2",
-    "type":"other"
+    "api_username":"fakeuser",
+    "api_password": "fakepassword",
+    "filter_id": "474748",
+    "base_url": "https://elrincondejira2.atlassianversion.net/dateTime",
+    "name": "hansSolo",
+    "type": "jira"
     }
     """
     When I send the request
