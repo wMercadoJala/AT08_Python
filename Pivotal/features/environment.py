@@ -13,3 +13,5 @@ def before_scenario(context, scenario):
         ProjectHelper.create_membership(405)
     if 'create_integration' in scenario.tags:
         ProjectHelper.create_integration("https://elrincondejira2.atlassian.net")
+    if 'create_epic' in scenario.tags:
+        ProjectHelper.create_epic('First epic to my project')
