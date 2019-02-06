@@ -1,6 +1,7 @@
 import json
 
 from Pivotal.core.rest_client.request_manager import RequestManager
+from Pivotal.core.utils import commons
 from Pivotal.core.utils.storage import Storage
 
 container_id = Storage.get_instance()
@@ -16,7 +17,8 @@ class ProjectHelper:
     def create_project(name):
         client = RequestManager()
         body = {
-            'name': name
+            'name': commons.get_unique_name(name),
+            'project_type':'public'
         }
         client.set_method('POST')
         client.set_endpoint('/projects')
