@@ -3,7 +3,5 @@ user: project_at08t2@mailinator.com
 pass: at08team2
 token: 636d8f03545a294c7b2d0ebcb889e116
 account_id: 1081999
-member1: machine123@mailinator.com
-member2: wilson.lopez@fundacion-jala.org
-
-
+member1_id: 3143789
+member2_id: 3143772

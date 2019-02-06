@@ -1,8 +1,12 @@
 import json
 
+import yaml
+
 from Pivotal.core.rest_client.request_manager import RequestManager
 from Pivotal.core.utils import commons
 from Pivotal.core.utils.storage import Storage
+global config_data
+config_data = yaml.load(open('Pivotal/environment.yml'))
 
 container_id = Storage.get_instance()
 
@@ -95,13 +99,24 @@ class ProjectHelper:
         ProjectHelper.epic_id = response.json()['id']
 
     @staticmethod
-    def clear_account(account_id):
+    def clear_account():
+        account_id = config_data['account_id']
         client = RequestManager()
         client.set_method("GET")
         client.set_endpoint("/projects")
         response = client.execute_request()
         for project in response.json():
-            if  project[account_i]
-            ProjectHelper.delete_project(project["id"])
+            if project["account_id"] == account_id:
+                ProjectHelper.delete_project(project["id"])
+
+    @staticmethod
+    def set_account_data():
+        account_id = config_data['account_id']
+        membership_id = config_data['member2_id']
+        container_id.add_value('$ACCOUNT_ID', account_id)
+        container_id.add_value('$MEMBERSHIP_ID_FOR_ACCOUNT', membership_id)
+
+
+
 
 
