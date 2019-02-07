@@ -133,3 +133,17 @@ class ProjectHelper:
         membership_id = config_data['member2_id']
         container_id.add_value('$ACCOUNT_ID', account_id)
         container_id.add_value('$MEMBERSHIP_ID_FOR_ACCOUNT', membership_id)
+
+    @staticmethod
+    def create_stories(description):
+        client = RequestManager()
+        body = {
+            'name': commons.get_unique_name(description)
+        }
+        client.set_method('POST')
+        client.set_endpoint('/accounts')
+        client.set_body(json.dumps(body))
+        response = client.execute_request()
+        container_id.add_value("$STORY_ID", response.json()['id'])
+        ProjectHelper.project_id = response.json()['id']
+        return response.json()['id']
