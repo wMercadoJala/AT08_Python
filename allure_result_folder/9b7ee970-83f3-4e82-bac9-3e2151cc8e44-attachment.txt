@@ -1,4 +1,0 @@
-{
-"webhook_url":"https://lapelicula2468.com",
-"webhook_version":"v5"
-}

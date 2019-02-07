@@ -1,3 +1,0 @@
-{
-"name":"this project name to did modificated"
-}

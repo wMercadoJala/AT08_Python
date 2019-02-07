@@ -1,5 +1,0 @@
-{
-"email":"machine123@mailinator.com",
-"initials":"machine123",
-"name":"MA"
-}

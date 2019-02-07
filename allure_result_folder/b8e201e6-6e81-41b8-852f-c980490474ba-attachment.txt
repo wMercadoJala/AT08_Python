@@ -1,3 +1,0 @@
-{
-"name":"Storie1 created by team2"
-}

@@ -1,4 +1,0 @@
-{
-"person_id":106,
-"role":"member"
-}

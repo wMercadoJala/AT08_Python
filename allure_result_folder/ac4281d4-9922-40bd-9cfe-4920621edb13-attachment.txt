@@ -1,4 +1,0 @@
-{
-"base_url":"https://elrincondejiraoculto.atlassian.net",
-"name":"rinconcito"
-}

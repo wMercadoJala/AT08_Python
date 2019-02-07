@@ -1,5 +1,0 @@
-{
-"base_url":"https://elrincondejiraversion.atlassian.net",
-"name":"algointeresante2",
-"type":"other"
-}
