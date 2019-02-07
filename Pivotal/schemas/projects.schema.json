@@ -91,16 +91,6 @@
         15
       ]
     },
-    "description": {
-      "$id": "#/properties/description",
-      "type": "string",
-      "title": "The Description Schema",
-      "default": "",
-      "examples": [
-        "Expeditionary Battle Planetoid"
-      ],
-      "pattern": "^(.*)$"
-    },
     "enable_following": {
       "$id": "#/properties/enable_following",
       "type": "boolean",
