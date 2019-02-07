@@ -3,11 +3,14 @@ from compare import *
 
 import json
 
+from jsonschema import validate
+
 from Pivotal.core.logger.singleton_logger import SingletonLogger
 from Pivotal.core.rest_client.request_manager import *
 from Pivotal.core.utils import commons
 from Pivotal.core.utils.json_helper import JsonHelper
 from Pivotal.core.utils.storage import Storage
+from definitions import SCHEMA_CREATION
 
 container_id = Storage.get_instance()
 logger = SingletonLogger().get_logger()
@@ -55,3 +58,10 @@ def step_impl(context):
     logger.info("Add Data to request")
     body = json.loads(context.text)
     context.client.set_body(json.dumps(body))
+
+
+@step(u'I validate with "{read_schema}" schema')
+def schema_validation(context, read_schema):
+    with open(SCHEMA_CREATION[read_schema]) as schema_creation:
+        schema = json.load(schema_creation)
+    validate(instance=context.response.json(), schema=schema)
