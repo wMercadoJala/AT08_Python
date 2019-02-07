@@ -10,7 +10,7 @@ from Pivotal.core.rest_client.request_manager import *
 from Pivotal.core.utils import commons
 from Pivotal.core.utils.json_helper import JsonHelper
 from Pivotal.core.utils.storage import Storage
-from definitions import SCHEMA_CREATION
+from definitions import SCHEMAS
 
 container_id = Storage.get_instance()
 logger = SingletonLogger().get_logger()
@@ -62,6 +62,5 @@ def step_impl(context):
 
 @step(u'I validate with "{read_schema}" schema')
 def schema_validation(context, read_schema):
-    with open(SCHEMA_CREATION[read_schema]) as schema_creation:
-        schema = json.load(schema_creation)
-    validate(instance=context.response.json(), schema=schema)
+    with open(SCHEMAS[read_schema]) as schema_creation:
+        validate(instance=context.response.json(), schema=json.load(schema_creation))
