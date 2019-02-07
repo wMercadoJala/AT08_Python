@@ -83,5 +83,6 @@
       ],
       "pattern": "^(.*)$"
     }
-  }
+  },
+  "additionalProperties": false
 }
