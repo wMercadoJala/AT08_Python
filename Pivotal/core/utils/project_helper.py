@@ -141,7 +141,7 @@ class ProjectHelper:
             'name': commons.get_unique_name(description)
         }
         client.set_method('POST')
-        client.set_endpoint('/accounts')
+        client.set_endpoint('/stories')
         client.set_body(json.dumps(body))
         response = client.execute_request()
         container_id.add_value("$STORY_ID", response.json()['id'])
