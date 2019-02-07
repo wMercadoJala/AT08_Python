@@ -71,8 +71,4 @@ def schema_validation(context, read_schema):
 def validation_sent_data(context):
     logger.info("Validation of sent data")
     sent_json = json.loads(context.sent_data)
-    # lambda item: print(item), sent_json
     lambda item: expect(sent_json[item]).to_equal(context.response.json()[item]), sent_json
-    # for item in sent_json:
-    #     response = context.response.json()
-    #     expect(sent_json[item]).to_equal(response[item])
