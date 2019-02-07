@@ -62,13 +62,5 @@ def step_impl(context):
 
 @step(u'I validate with "{read_schema}" schema')
 def schema_validation(context, read_schema):
-    logger.info("Validation of the schema")
     with open(SCHEMAS[read_schema]) as schema_creation:
         validate(instance=context.response.json(), schema=json.load(schema_creation))
-
-
-@step("I verify the sent data")
-def validation_sent_data(context):
-    logger.info("Validation of sent data")
-    sent_json = json.loads(context.sent_data)
-    lambda item: expect(sent_json[item]).to_equal(context.response.json()[item]), sent_json
